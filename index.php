@@ -1,7 +1,7 @@
 <?php
 
 // Project constants
-define('PROJECT_NAME', 'blog');
+define('PROJECT_NAME', 'halo');
 define('DEFAULT_CONTROLLER', 'welcome');
 define('DEBUG', false);
 
