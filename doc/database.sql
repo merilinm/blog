@@ -184,7 +184,7 @@ MODIFY `tag_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 ALTER TABLE `user`
 MODIFY `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- Constraints for dumped tables
+-- Constraints fodr dumped tables
 --
 
 --
