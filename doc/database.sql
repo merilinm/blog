@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2014 at 07:52 AM
+-- Generation Time: Oct 27, 2014 at 09:49 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -14,6 +14,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `blog`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment`
+--
+
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE IF NOT EXISTS `comment` (
+`comment_id` int(10) unsigned NOT NULL,
+  `comment_text` text NOT NULL,
+  `comment_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`comment_id`, `comment_text`, `comment_created`) VALUES
+(1, 'Cool cool', '2014-10-27 08:24:24'),
+(2, 'Awesome awesome', '2014-10-27 08:24:24'),
+(3, 'allalala', '2014-10-27 08:45:20');
 
 -- --------------------------------------------------------
 
@@ -108,6 +130,12 @@ INSERT INTO `user` (`user_id`, `username`, `password`, `deleted`) VALUES
 --
 
 --
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
+ ADD PRIMARY KEY (`comment_id`);
+
+--
 -- Indexes for table `post`
 --
 ALTER TABLE `post`
@@ -136,6 +164,11 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+MODIFY `comment_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
@@ -153,6 +186,12 @@ MODIFY `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `comment`
+--
+ALTER TABLE `comment`
+ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`comment_id`) REFERENCES `post` (`post_id`);
 
 --
 -- Constraints for table `post`
