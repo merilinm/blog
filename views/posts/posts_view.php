@@ -5,7 +5,7 @@
         <?foreach ($tags as $tag):?>
             <a href="tags/view/<?=$tag['tag_id']?>"><span class="label label-info"><?=$tag['tag_name']?></span></a>
     <?endforeach?>
-        <span class="badge badge-success">Posted 2012-08-02 20:47:04</span><div class="pull-right"></div>
+        <span class="badge badge-success"><?=$post['post_created']?></span><div class="pull-right"></div>
     </div>
  </div>
 
@@ -19,7 +19,6 @@
                     Recent Comments</h3>
                 <span class="label label-info"></span>
             </div>
-
             <?foreach( $comments as $comment ):?>
             <div class="panel-body">
                 <ul class="list-group">
@@ -30,7 +29,7 @@
                             <div class="col-xs-10 col-md-11">
                                 <div>
                                     <div class="mic-info">
-                                        By: <a href="#"> <?=$comment['user_id']?></a> <?=$comment['comment_created']?>
+                                        By: <a href="#"> <?=$comment['comment_author']?></a> <?=$comment['comment_created']?>
                                     </div>
                                 </div>
                                 <div class="comment-text">
@@ -52,9 +51,17 @@
                     </li>
                     <?endforeach?>
                 </ul>
+
                 <a href="#" class="btn btn-primary btn-sm btn-block" role="button"><span class="glyphicon glyphicon-refresh"></span> More</a>
             </div>
-
+            <form class="form-inline" role="form" method="post">
+                <div class="form-group">
+                    <input  name="data[comment_text]" class="form-control" type="text" placeholder="Your comment here" />
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-default">Add</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
